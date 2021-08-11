@@ -1,51 +1,70 @@
+# Getting Started with Create React App
 
-# Prueba Técnica - Programador (Front-end)
-La siguiente es una prueba para evaluar a los postulantes a programador **Front-end LORO**.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## INTRODUCCIÓN
-Este repositorio contiene una serie de requerimientos de un Caso Práctico, que busca evaluar las capacidades técnicas del candidato con respecto a las principales funciones y responsabilidades que se requieren dentro del área de Desarrollo de Front-end.
+## Available Scripts
 
-#### ¿Qué se busca evaluar?
-Principalmente los siguientes aspectos:
-  + Creatividad para resolver los requerimientos,
-  + Calidad del código entregado (estructura y buenas prácticas),
-  + Eficiencia de los algoritmos entregados,
-  + Familiaridad con Frameworks y plataformas de desarrollo Web.
+In the project directory, you can run:
 
-## IMPORTANTE
-1. Asegúrate de tener `Node.js` y `npm` instalados.
-2. Se solicita crear la aplicación utilizando la tecnología Web de su elección, se privilegiarán a los candidatos que utilicen **[ReactJs](https://es.reactjs.org/)** + **Bootstrap**.
-3. Recomendamos emplear un máximo de **24 horas** y enviar todo lo que puedas.
-4. Se requiere de una **cuenta de GitHub** para realizar este ejercicio.
-5. **Antes de comenzar a programar:**
-    * Realizar un `Fork` de este repositorio (https://github.com/lorotechservices/front-end-test-coding).
-    * Clonar el fork a su máquina local  `git clone git@github.com:USERNAME/FORKED-PROJECT.git`
-    * Crear un `branch` en su cuenta de GitHub utilizando su nombre completo.
-6. **Al finalizar**, existen 2 (dos) opciones para entregar su proyecto:
-    * 1) Realizar un `Commit` de su proyecto, **enviar un `Pull Request` al branch con su NOMBRE**, y notificar a la siguiente direcciones de correo electrónico  [d.villanueva@loro.com.co](mailto:d.villanueva@loro.com.co) y [e.angel@loro.com.co](mailto:e.angel@loro.com.co).
-    * 2) Crear un archivo comprimido (_.zip_ o _.rar_) de su proyecto y enviar a la siguiente direcciones de correo electrónico  [d.villanueva@loro.com.co](mailto:d.villanueva@loro.com.co) y [e.angel@loro.com.co](mailto:e.angel@loro.com.co).
+### `yarn start`
 
-## EJERCICIO PRÁCTICO
-**Objetivo:** Crear una aplicación que ayude a obtener una lista de usuarios y muestre la información de sus perfiles, explotando el API Rest pública de GitHub https://api.github.com/search/users?q=YOUR_NAME.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-#### Requerimientos generales
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-1. La aplicación debe cumplir con los siguientes **requisitos funcionales:**
+### `yarn test`
 
-    - Crear una aplicación que incluya un campo de entrada texto y un botón (Search), para que se pueda capturar el usuario y recuperar la información utilizando el API anteriormente indicada.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-    - Mostrar los primeros 10 usuarios del resultado de la búsqueda (List), incluyendo su nombre de usuario (`'user.login'`) y el id (`'user.id'`) de cada registro.
+### `yarn build`
 
-    - Convertir cada Perfil de usuario en un enlace para que al hacer clic en cada registro navegue a una ruta que incluya la propiedad `'user.login'` como parámetro (Route).
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    - Crear un componente independiente en el que se lea el parámetro de la URL (User Details), y a continuación, obtenga los datos de dicho usuario mediante la siguiente API: https://api.github.com/users/YOUR_NAME
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-    - Incluir la imagen del usuario (`'avatar_url'`) y alguna otra información (de su elección) en el componente.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-    - Incluir un validador que verifique que el texto de búsqueda de usuarios sea de un mínimo de 4 caracteres, y otro que NO permita realizar la búsqueda de la palabra **“noloro”**.
+### `yarn eject`
 
-    - Incluir un componente para mostrar mensajes de Error en toda la aplicación (Toast).
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-2. **CSS:** Utilizar algún framework (a elección) para escribir los archivos CSS, tomando en cuenta la compatibilidad con distintos navegadores.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-3. **Iconos:** Utilizar una librería para el manejo de iconos donde lo considere necesario (_se recomienda el uso de [Font Awesome](http://fontawesome.io/) o [Glyphicons](http://glyphicons.com/)._)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
