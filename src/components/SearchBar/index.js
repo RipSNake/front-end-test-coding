@@ -24,13 +24,12 @@ export const SearchBar = ({setList}) => {
 		} else {
 			console.log('ERROR EN EL VALOR DE BUSQUEDA');
 		}
-		
 	}
 
 	return (
 		<form  onSubmit={handleSubmit}>
 			<input name="q" type="text" placeholder="Search user..." />
-			<button type="submit">Search</button>
+			<button type="submit" className="search-btn"><i className="fas fa-search"></i></button>
 		</form>
 	)
 };

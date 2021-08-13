@@ -7,13 +7,16 @@ export const Toast = ({toastList}) => {
 	const handleClick = (index) => {
 		console.log('Handle click TOAST Index ', index);
 		let newList = list;
+		console.log(newList)
 		setList(newList.filter((item, ind) => ind !== index));
 	}
 
 	useEffect(() => {
-		setList(toastList);
+		
+			setList(toastList);
+		
 		console.log('Toast Component ', toastList);
-	}, [list, toastList]);
+	}, [toastList]);
 
 	return (
 		<div className="notification-container bottom-right">

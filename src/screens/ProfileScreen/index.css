@@ -1,0 +1,16 @@
+#back-btn {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	background-color: rgba(0,0,0,0);	
+	border:  none;
+	border-radius: 50%;
+	min-width: 60px;
+	min-height: 60px;
+	font-size: 2rem;
+}
+
+#back-btn:hover {
+	color: white;
+	background-color: rgba(0, 0, 0,.5);
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './index.css';
 
 export const UserList = ({users}) => {
 	const [list, setList] = useState([]);
@@ -10,10 +11,9 @@ export const UserList = ({users}) => {
 	}, [users]);
 
 	return (
-		<ul>
-			FROM USER LIST
+		<ul className="list-group"  id="result-container">
 		{ list.map(user => (
-				<li key={user.id}>
+				<li key={user.id} className="list-group-item border-0">
 					<a href={`/users/${user.login}`}>{user.login} - {user.id}</a>
 				</li>
 			))}

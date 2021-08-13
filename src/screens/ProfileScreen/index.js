@@ -1,14 +1,18 @@
+import './index.css';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import httpService from '../../services/httpService';
 
 export const ProfileScreen = () =>{
 	const {id} = useParams();
 	const [user, setUser] = useState({name: 'NOmbrerbebr'})
+	const history = useHistory();
 
 	const fetchData = async () => {
 			return await httpService({id});
 	}
+
+	const goBack = () => {history.goBack() }
 
 	useEffect(() => {
 		if(id) {
@@ -19,27 +23,30 @@ export const ProfileScreen = () =>{
 	}, [id])
 
 	return (
-		<>
-			<h1>From Profile Screen</h1>
+		<div className="my-2 col-8 col-sm-6 col-md-4 mx-auto" style={{minWidth:'380px'}}>
+			<button onClick={goBack} id="back-btn"><i class="fas fa-arrow-left"></i></button>
 			{	!user ?
 				<p>Fetching Data...</p>
 				:
-				<>
-				<img src={`${user.avatar_url}`} alt={`${user.name}'s Profile Pic`}/>
-				<ul>
-					<li>Name: {user.name ? user.name : 'Unknown'}</li>
-					<li>Company: {user.company ? user.company : 'Unknown'}</li>
-					<li>Location: {user.location ? user.location : 'Unknown'}</li>
-					<li>Email: {user.email ? user.location : 'Unknown'}</li>
-					<li>Hireable: {user.hireable ? user.hireable : 'Unknown'}</li>
-					<li>Bio: {user.bio ? user.bio : 'Unknown'}</li>
-				</ul>	
-				</>
+				<div className="card shadow border-0  mx-auto" style={{backgroundColor: '#eee'}}>
+					<img className="mx-auto my-2" style={{borderRadius: '50%', maxHeight: '350px',maxWidth: '350px'}} src={`${user.avatar_url}`} alt={`${user.name}'s Profile Pic`}/>
+					<div className="card-body">
+					<ul className="list-group" style={{listStyleType: 'none'}}>
+						<li><h5 className="list-group-item border-0 card-title"><i className="fas fa-user-alt"></i> {user.name ? user.name : 'Unknown'}</h5></li>
+						<li><h6 className="list-group-item border-0 card-subtitle"><i className="fas fa-building"></i> {user.company ? user.company : 'Unknown'}</h6></li>						
+						<li className="list-group-item border-0"><i className="fas fa-map-marker-alt"></i> {user.location ? user.location : 'Unknown'}</li>
+						<li className="list-group-item border-0"><i className="fas fa-envelope"></i> {user.email ? user.location : 'Unknown'}</li>
+						<li className="list-group-item border-0"><i className="fas fa-briefcase"></i> {user.hireable ? user.hireable : 'Unknown'}</li>
+						<li className="list-group-item border-0">Bio: {user.bio ? user.bio : 'Unknown'}</li>
+						
+					</ul>	
+					</div>
+				</div>
 			}
 			
 			
 
-		</>
+		</div>
 	)
 };
 

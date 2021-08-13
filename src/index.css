@@ -7,9 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  background-color: #35363a;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.search-btn {
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
+.search-btn:hover {
+  border:  1px solid #fff;
+  background-color: #222;
+  color: #fff;
 }

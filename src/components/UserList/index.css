@@ -1,0 +1,14 @@
+#result-container li:hover {
+	background-color: #999;
+	color: white;
+	cursor: pointer;
+}
+
+li a {
+	color: inherit;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: inherit;
+}

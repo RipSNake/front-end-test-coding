@@ -24,14 +24,18 @@ const testList = [
 ];
 
 function App() {
-  const [toastList, setToast] = useState(testList);
+  const [toastList, setToast] = useState([]);
+
+  const addToast = (toast) => {
+    setToast([...toastList, toast]);
+  };
 
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/users/:id" component={ProfileScreen} />
-          <Route path="/users" component={SearchScreen} exact/>
+          <Route path="/users/:id" component={ProfileScreen} addToast={addToast}/>
+          <Route path="/users" component={SearchScreen} addToast={addToast} exact/>
           <Route path="/" exact >
             <Redirect to="/users" />
           </Route>
