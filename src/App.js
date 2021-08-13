@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import{ useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+
+import SearchScreen from './screens/SearchScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import Toast from './components/Toast';
+
+const testList = [
+    {
+      id: 1,
+      title: 'Success',
+      message: 'This is a success toast component',
+      backgroundColor: '#5cb85c',
+      // icon: checkIcon
+    },
+    {
+      id: 2,
+      title: 'Danger',
+      message: 'This is an error toast component',
+      backgroundColor: '#d9534f',
+      // icon: errorIcon
+    },
+];
 
 function App() {
+  const [toastList, setToast] = useState(testList);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/users/:id" component={ProfileScreen} />
+          <Route path="/users" component={SearchScreen} exact/>
+          <Route path="/" exact >
+            <Redirect to="/users" />
+          </Route>
+        </Switch>
+        <Toast toastList={toastList}/>
+      </Router>
     </div>
   );
 }

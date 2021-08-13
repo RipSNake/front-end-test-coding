@@ -1,14 +1,17 @@
 import axios from 'axios';
 
-export const httpService = async () => {
+export const httpService = async ({searchParams, id}) => {
+	const config = {
+		baseURL: 'https://api.github.com/',
+	}
+	if (searchParams) { config.url = `search/users?q=${searchParams}` };
+	if (id) { config.url = `users/${id}` };
 
 	try {
 		const response = await axios(config);
-		console.log(response);
-		return response.items;
-	} catch (error) {
-		console.log(error);
-		throw Error(error.message);
+		return response.data;
+	} catch (error) {		
+		console.log ('Error ', error.message);
 	}
 };
 
