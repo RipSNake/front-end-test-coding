@@ -1,25 +1,32 @@
+import './index.css';
 import httpService from '../../services/httpService';
 
 export const SearchBar = ({setList}) => {
 
 	const validator = (string) => {
-		if(string.length >= 4 && string !== 'noloro') {
-			return true;
+		console.log('The validation ', string);
+		if(string !== 'noloro') {
+			if(string.length >= 4) {
+				return true;
+			} else {
+				console.log('String is too short');
+				return false;
+			}	
 		} else {
-			return false;
+			console.log('Search value DENIED');
 		}
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if(validator) {
+		if(validator(e.target['q'].value)) {
 			const results = await httpService({searchParams: `${e.target['q'].value}`});
-			if(results) {
+			if(results.length > 0) {
 				let firsts = [];
 				for(let i = 0; i < 10; i++) {
 					firsts.push(results.items[i]);
 				}
-				if(setList) { setList(firsts) }
+				setList(firsts)
 			}	
 		} else {
 			console.log('ERROR EN EL VALOR DE BUSQUEDA');
@@ -28,8 +35,8 @@ export const SearchBar = ({setList}) => {
 
 	return (
 		<form  onSubmit={handleSubmit}>
-			<input name="q" type="text" placeholder="Search user..." />
-			<button type="submit" className="search-btn"><i className="fas fa-search"></i></button>
+			<input name="q" type="text" placeholder="Search user..." className="w-75"/>
+			<button type="submit" className="search-btn w-25"><i className="fas fa-search"></i></button>
 		</form>
 	)
 };

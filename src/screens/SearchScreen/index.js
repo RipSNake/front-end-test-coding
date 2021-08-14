@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import UserList from '../../components/UserList';
 
-export const SearchScreen = () => {
+export const SearchScreen = ({addToast}) => {
 	const [results, setResults] = useState([]);
 
 	return (

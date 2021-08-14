@@ -12,5 +12,13 @@
 
 #back-btn:hover {
 	color: white;
-	background-color: rgba(0, 0, 0,.5);
+	background-color: rgba(0,0,0,.5);
+}
+
+#profile ul {
+	list-style-type: none;
+}
+
+#profile ul li {
+	background-color: rgba(0,0,0,0) !important;
 }
