@@ -7,7 +7,6 @@ export const Toast = ({toastList}) => {
 	const handleClick = (index) => {
 		console.log('Handle click TOAST Index ', index);
 		let newList = list;
-		console.log(newList)
 		setList(newList.filter((item, ind) => ind !== index));
 	}
 
@@ -21,16 +20,16 @@ export const Toast = ({toastList}) => {
 	return (
 		<div className="notification-container bottom-right">
 		{ list.map((item, index) => 
-			<div key={index} className="notification toast show" style={{backgroundColor: `${item.backgroundColor}`}}>
+			<div key={index} className="notification toast show" style={{backgroundColor: `${item.bgColor}`}}>
 				<button onClick={(e) => handleClick(index)}>
 		        X
 		    </button>
 		    <div className="notification-image">
-		        <img src="" alt="Toast IMG" />
+		        <img src={item.img} alt="IMG" />
 		    </div>
 		    <div>
-		        <p className="notification-title">Title</p>
-		        <p className="notification-message">Message</p>
+		        <p className="notification-title">{item.title}</p>
+		        <p className="notification-message">{item.message}</p>
 		    </div>
 			</div>
 			)

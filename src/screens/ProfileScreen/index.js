@@ -24,7 +24,7 @@ export const ProfileScreen = ({addToast}) =>{
 
 	return (
 		<div className="my-2 col-8 col-sm-6 col-md-4 mx-auto" style={{minWidth:'380px'}} id="profile">
-			<button onClick={goBack} id="back-btn"><i class="fas fa-arrow-left"></i></button>
+			<button onClick={goBack} id="back-btn"><i className="fas fa-arrow-left"></i></button>
 			{	!user ?
 				<p>Fetching Data...</p>
 				:

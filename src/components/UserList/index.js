@@ -5,6 +5,7 @@ export const UserList = ({users}) => {
 	const [list, setList] = useState([]);
 
 	useEffect(() => {
+		console.log('Users list results ', users);
 		if(users) {
 			setList(users);
 		};

@@ -6,36 +6,25 @@ import SearchScreen from './screens/SearchScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import Toast from './components/Toast';
 
-const testList = [
-    {
-      id: 1,
-      title: 'Success',
-      message: 'This is a success toast component',
-      backgroundColor: '#5cb85c',
-      // icon: checkIcon
-    },
-    {
-      id: 2,
-      title: 'Danger',
-      message: 'This is an error toast component',
-      backgroundColor: '#d9534f',
-      // icon: errorIcon
-    },
-];
-
 function App() {
   const [toastList, setToast] = useState([]);
 
-  const addToast = (toast) => {
+  const newToast = (toast) => {
+    console.log('New toast ', toast)
     setToast([...toastList, toast]);
+    console.log('Lista completa ', toastList);
   };
 
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/users/:id" component={ProfileScreen} addToast={addToast}/>
-          <Route path="/users" component={SearchScreen} addToast={addToast} exact/>
+          <Route path="/users/:id" >
+            <ProfileScreen addToast={newToast} />
+          </Route>
+          <Route path="/users" exact >
+            <SearchScreen addToast={newToast} />
+          </Route>
           <Route path="/" exact >
             <Redirect to="/users" />
           </Route>

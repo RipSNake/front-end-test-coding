@@ -1,7 +1,7 @@
 import './index.css';
 import httpService from '../../services/httpService';
 
-export const SearchBar = ({setList}) => {
+export const SearchBar = ({setList, addToast}) => {
 
 	const validator = (string) => {
 		console.log('The validation ', string);
@@ -21,14 +21,19 @@ export const SearchBar = ({setList}) => {
 		e.preventDefault();
 		if(validator(e.target['q'].value)) {
 			const results = await httpService({searchParams: `${e.target['q'].value}`});
-			if(results.length > 0) {
+			if(results.items.length > 0) {
 				let firsts = [];
 				for(let i = 0; i < 10; i++) {
 					firsts.push(results.items[i]);
 				}
-				setList(firsts)
-			}	
+				setList(firsts);
+				addToast({title:'New Toast',message:'This is so great !',bgColor:'green'})
+			}	else {
+				addToast({title:'NULO',message:'resultado nulo',bgColor:'yellow'})
+				console.log('Resultado Nulo');
+			}
 		} else {
+			addToast({title: 'Error fetching users', message: 'No se pudo completar la busqueda',bgColor:'red'})
 			console.log('ERROR EN EL VALOR DE BUSQUEDA');
 		}
 	}
