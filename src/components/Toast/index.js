@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
+import check from '../../assets/check.svg';
+import error from '../../assets/error.svg';
 
 export const Toast = ({toastList}) => {
 	const [list, setList] = useState([]);
@@ -25,7 +27,7 @@ export const Toast = ({toastList}) => {
 		        X
 		    </button>
 		    <div className="notification-image">
-		        <img src={item.img} alt="IMG" />
+		        <img src={`${item.img}`} alt="IMG" />
 		    </div>
 		    <div>
 		        <p className="notification-title">{item.title}</p>

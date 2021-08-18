@@ -80,6 +80,7 @@
 
 .notification-image {
     float: left;
+    margin-top: 8px;
     margin-right: 15px;
 }
 
@@ -89,10 +90,10 @@
 }
 
 .toast {
-    height: 50px;
+    /*height: 50px;*/
     width: 365px;
     color: #fff;
-    padding: 20px 15px 10px 10px;
+    padding: 10px 15px 15px 10px;
 }
 
 .notification-container button {

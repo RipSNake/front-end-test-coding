@@ -27,13 +27,12 @@ export const SearchBar = ({setList, addToast}) => {
 					firsts.push(results.items[i]);
 				}
 				setList(firsts);
-				addToast({title:'New Toast',message:'This is so great !',bgColor:'green'})
+				addToast({title:'New Toast',message:'This is so great !',bgColor:'green',img:'check'})
 			}	else {
-				addToast({title:'NULO',message:'resultado nulo',bgColor:'yellow'})
-				console.log('Resultado Nulo');
+				addToast({title:'NULO',message:'resultado nulo',bgColor:'red',img:'error'})
 			}
 		} else {
-			addToast({title: 'Error fetching users', message: 'No se pudo completar la busqueda',bgColor:'red'})
+			addToast({title: 'Error fetching users', message: 'No se pudo completar la busqueda',bgColor:'red',img:'error'})
 			console.log('ERROR EN EL VALOR DE BUSQUEDA');
 		}
 	}
