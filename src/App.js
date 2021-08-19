@@ -10,9 +10,16 @@ function App() {
   const [toastList, setToast] = useState([]);
 
   const newToast = (toast) => {
-    console.log('New toast ', toast)
     setToast([...toastList, toast]);
-    console.log('Lista completa ', toastList);
+    let timer = setInterval(() => {
+      toast.opacity -= .1; 
+      console.log('Opacity ', toast.opacity);
+      if(toastList.length === 0) {
+        console.log('inside interval', toastList.length);
+        clearInterval(timer);
+      }
+    }
+    , 500);   
   };
 
   return (
@@ -29,7 +36,7 @@ function App() {
             <Redirect to="/users" />
           </Route>
         </Switch>
-        <Toast toastList={toastList}/>
+        <Toast toastList={toastList} setToast={setToast}/>
       </Router>
     </div>
   );

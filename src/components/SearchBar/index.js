@@ -1,19 +1,23 @@
 import './index.css';
+import { useState } from 'react';
 import httpService from '../../services/httpService';
 
 export const SearchBar = ({setList, addToast}) => {
+	const [error, setError] = useState('');
 
 	const validator = (string) => {
-		console.log('The validation ', string);
 		if(string !== 'noloro') {
 			if(string.length >= 4) {
+				setError('');
 				return true;
 			} else {
-				console.log('String is too short');
+				setError('Search value must have at least 4 characters');
 				return false;
 			}	
 		} else {
-			console.log('Search value DENIED');
+			setError('Search value DENIED');
+			// addToast({title:'Denied', message:'Search Value Denied',bgColor:'red',img:'error'})
+			return false;
 		}
 	};
 
@@ -27,21 +31,23 @@ export const SearchBar = ({setList, addToast}) => {
 					firsts.push(results.items[i]);
 				}
 				setList(firsts);
-				addToast({title:'New Toast',message:'This is so great !',bgColor:'green',img:'check'})
+				addToast({title:'Success',message:'Search completed',bgColor:'green',img:'check',opacity:'.5'})
 			}	else {
-				addToast({title:'NULO',message:'resultado nulo',bgColor:'red',img:'error'})
+				addToast({title:'No matches',message:'No coincidences found',bgColor:'yellow',img:'info',opacity:'1'})
 			}
 		} else {
-			addToast({title: 'Error fetching users', message: 'No se pudo completar la busqueda',bgColor:'red',img:'error'})
-			console.log('ERROR EN EL VALOR DE BUSQUEDA');
+			addToast({title:'Error fetching users', message:`${error}`, bgColor:'red', img:'error',opacity:'1'})
 		}
 	}
 
 	return (
-		<form  onSubmit={handleSubmit}>
-			<input name="q" type="text" placeholder="Search user..." className="w-75"/>
-			<button type="submit" className="search-btn w-25"><i className="fas fa-search"></i></button>
-		</form>
+		<>
+			<form  onSubmit={handleSubmit}>
+				<input name="q" type="text" placeholder="Search user..." className="w-75"/>
+				<button type="submit" className="search-btn w-25"><i className="fas fa-search"></i></button>
+			</form>
+			{ error ? <div style={{color: 'red', paddingTop: '5px'}}>{error}</div> : null }
+		</>
 	)
 };
 

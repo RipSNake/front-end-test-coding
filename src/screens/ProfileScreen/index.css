@@ -15,6 +15,12 @@
 	background-color: rgba(0,0,0,.5);
 }
 
+#profile img {
+	box-shadow: 1px 1px 3px rgba(0,0,0,.7), -1px 1px 3px rgba(0,0,0,.7), -1px -1px 3px rgba(0,0,0,.7), 1px -1px 3px rgba(0,0,0,.7);
+	min-height: 350px;
+	min-width: 350px;
+}
+
 #profile ul {
 	list-style-type: none;
 }
