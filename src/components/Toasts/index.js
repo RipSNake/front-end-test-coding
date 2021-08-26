@@ -1,22 +1,23 @@
 import './index.css';
-import check from '../../assets/check.svg';
-import error from '../../assets/error.svg';
-import info from '../../assets/info.svg';
-import warning from '../../assets/warning.svg';
+import ToastItem from '../ToastItem';
 
-const IMGS = [check, error, info, warning];
-
-export const Toast = ({toastList, setToast}) => {
-
+export const Toasts = ({toastList, setToast}) => {
+	// remove toast item onClick
 	const handleClick = (index) => {
-		let newList = toastList;
-		setToast(newList.filter((item, ind) => ind !== index));
+		setToast(toastList.filter((item, ind) => ind !== index));
 	}
 
 	return (
 		<div className="notification-container bottom-right">
-		{ toastList.map((item, index) => 
-			<div key={index} onClick={(e) => handleClick(index)} className="notification toast show" style={{backgroundColor: `${item.bgColor}`,opacity:`${item.opacity}`}}>
+			{ toastList.map((item, index) => <ToastItem key={index} item={item} index={index} setToast={setToast} handleClick={(e) => handleClick(index)}/>	)}
+		</div>	
+	)
+}
+
+export default Toasts;
+
+/*<div key={index} onClick={(e) => handleClick(index)} className="notification toast show" 
+				style={{backgroundColor: `${item.bgColor}`,opacity:`${item.opacity}`}} >
 		    <div className="notification-image">
 		    { item.img === 'check' ? <img src={check} alt={`${item.img}`} /> : null }
 		    { item.img === 'error' ? <img src={error} alt={`${item.img}`} /> : null }
@@ -27,11 +28,4 @@ export const Toast = ({toastList, setToast}) => {
 		        <p className="notification-title">{item.title}</p>
 		        <p className="notification-message">{item.message}</p>
 		    </div>
-			</div>
-			)
-		}
-		</div>	
-	)
-}
-
-export default Toast;
+			</div>*/

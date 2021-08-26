@@ -5,13 +5,13 @@ import httpService from '../../services/httpService';
 
 export const ProfileScreen = ({addToast}) =>{
 	const {id} = useParams();
-	const [user, setUser] = useState({name: 'NOmbrerbebr'})
+	const [user, setUser] = useState({name: ''})
 	const history = useHistory();
 
 	const fetchData = async () => {
 			return await httpService({id});
 	}
-
+	
 	const goBack = () => {history.goBack() }
 
 	useEffect(() => {
@@ -20,7 +20,7 @@ export const ProfileScreen = ({addToast}) =>{
 				result => {return setUser(result)}, 
 				error => console.log('Error ', error));
 		};
-	}, [id])
+	}, [id, fetchData])
 
 	return (
 		<div className="my-2 col-8 col-sm-6 col-md-4 mx-auto" style={{minWidth:'380px'}} id="profile">

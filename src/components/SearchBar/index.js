@@ -16,7 +16,7 @@ export const SearchBar = ({setList, addToast}) => {
 			}	
 		} else {
 			setError('Search value DENIED');
-			// addToast({title:'Denied', message:'Search Value Denied',bgColor:'red',img:'error'})
+			addToast({title:'Denied', message:'Search Value Denied',bgColor:'red',img:'error'})
 			return false;
 		}
 	};
@@ -36,7 +36,7 @@ export const SearchBar = ({setList, addToast}) => {
 				addToast({title:'No matches',message:'No coincidences found',bgColor:'yellow',img:'info',opacity:'1'})
 			}
 		} else {
-			addToast({title:'Error fetching users', message:`${error}`, bgColor:'red', img:'error',opacity:'1'})
+			addToast({title:'Error fetching users', message:'Search value must have at least 4 characters', bgColor:'red', img:'error',opacity:'1'})
 		}
 	}
 

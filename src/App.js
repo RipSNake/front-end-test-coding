@@ -4,22 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 import SearchScreen from './screens/SearchScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import Toast from './components/Toast';
+import Toasts from './components/Toasts';
 
 function App() {
   const [toastList, setToast] = useState([]);
 
   const newToast = (toast) => {
     setToast([...toastList, toast]);
-    let timer = setInterval(() => {
-      toast.opacity -= .1; 
-      console.log('Opacity ', toast.opacity);
-      if(toastList.length === 0) {
-        console.log('inside interval', toastList.length);
-        clearInterval(timer);
-      }
-    }
-    , 500);   
   };
 
   return (
@@ -36,7 +27,7 @@ function App() {
             <Redirect to="/users" />
           </Route>
         </Switch>
-        <Toast toastList={toastList} setToast={setToast}/>
+        <Toasts toastList={toastList} setToast={setToast}/>
       </Router>
     </div>
   );
